@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --ces-blue-primary: #193a63;
+  --ces-blue-dark: #0f2a4a;
+  --ces-blue-light: #2e6da4;
+
+  --ces-yellow: #f2b21a;
+  --ces-yellow-hover: #d89c14;
+
+  --ces-white: #ffffff;
+
+  --ces-gray-light: #f5f7fa;
+  --ces-gray-medium: #6b7280;
+  --ces-gray-border: #e5e7eb;
+  --ces-danger: #dc2626;
+  --ces-success: #16a34a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ces-gray-light);
+  color: var(--ces-blue-dark);
+}

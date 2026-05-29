@@ -1,0 +1,82 @@
+<div class="login-page">
+  <div class="login-card">
+    <div class="brand-hero">
+      <div class="brand-hero-overlay"></div>
+
+      <div class="brand-hero-content">
+        <img src="images/logo.png" class="logo-img" alt="VentAI Vision" />
+
+        <div class="titles">
+          <span class="brand-main">VENTAI</span>
+          <span class="brand-sub">VISION</span>
+        </div>
+
+        <div class="brand-copy">
+          <p>Inicia sesión y accede al centro de monitoreo de ventilación mecánica en tiempo real</p>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+      <label class="field email-field">
+        <span>Correo institucional</span>
+
+        <div class="input-wrapper">
+          <span class="material-symbols-outlined input-icon action-icon">mail</span>
+
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="usuario@ces.edu.co"
+            autocomplete="username"
+          />
+        </div>
+
+        <small *ngIf="emailCtrl.touched && emailCtrl.invalid">
+          Ingresa un correo institucional válido (@ces.edu.co).
+        </small>
+      </label>
+
+      <label class="field password-field">
+        <span>Contraseña</span>
+
+        <div class="password-wrapper">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
+            placeholder="********"
+            autocomplete="current-password"
+          />
+
+          <button
+            type="button"
+            class="toggle-password"
+            (click)="togglePassword()"
+            [attr.aria-label]="showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'"
+          >
+            <span class="material-symbols-outlined action-icon">
+              {{ showPassword ? 'visibility_off' : 'visibility' }}
+            </span>
+          </button>
+        </div>
+
+        <small *ngIf="passwordCtrl.touched && passwordCtrl.invalid">
+          La contraseña es obligatoria.
+        </small>
+      </label>
+
+      <button class="btn-primary" type="submit" [disabled]="loading">
+        <span *ngIf="!loading">Ingresar</span>
+        <span *ngIf="loading">Ingresando...</span>
+      </button>
+
+      <div class="error-under" *ngIf="errorMsg" role="alert">
+        {{ errorMsg }}
+      </div>
+    </form>
+  </div>
+
+  <div class="login-note" *ngIf="reason() === 'expired'">
+    Tu sesión expiró. Inicia sesión nuevamente.
+  </div>
+</div>

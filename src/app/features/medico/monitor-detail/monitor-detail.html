@@ -1,0 +1,228 @@
+<div class="monitor-screen">
+
+  <!-- TOP -->
+
+  <div class="top-bar">
+
+    <div class="patient-info">
+
+      <h1>
+        PACIENTE UCI
+      </h1>
+
+      <span>
+
+        Ventilador {{ ventilatorId }}
+
+      </span>
+
+    </div>
+
+    <div class="mode-box">
+
+      {{ measurement?.modo || '--' }}
+
+    </div>
+
+  </div>
+
+  <!-- LAYOUT -->
+
+  <div class="monitor-layout">
+
+    <!-- LEFT -->
+
+    <div class="left-panel">
+
+      <div class="parameter-box">
+
+        <strong>
+
+          {{ measurement?.ppico || '--' }}
+
+        </strong>
+
+        <span>
+
+          Ppico
+
+        </span>
+
+      </div>
+
+      <div class="parameter-box">
+
+        <strong>
+
+          {{ measurement?.volMinEsp || '--' }}
+
+        </strong>
+
+        <span>
+
+          VolMinEsp
+
+        </span>
+
+      </div>
+
+      <div class="parameter-box">
+
+        <strong>
+
+          {{ measurement?.vte || '--' }}
+
+        </strong>
+
+        <span>
+
+          VTE
+
+        </span>
+
+      </div>
+
+      <div class="parameter-box">
+
+        <strong>
+
+          {{ measurement?.fTotal || '--' }}
+
+        </strong>
+
+        <span>
+
+          fTotal
+
+        </span>
+
+      </div>
+
+    </div>
+
+    <!-- CENTER -->
+
+  <div class="center-panel">
+
+    <!-- PRESSURE -->
+
+    <div class="wave-container">
+
+      <img
+
+        *ngIf="measurement?.gsImage"
+
+        [src]="
+          'data:image/jpeg;base64,' +
+          measurement.gsImage
+        "
+
+        class="wave-image"
+
+      />
+
+    </div>
+
+    <!-- FLOW -->
+
+    <div class="wave-container">
+
+      <img
+
+        *ngIf="measurement?.giImage"
+
+        [src]="
+          'data:image/jpeg;base64,' +
+          measurement.giImage
+        "
+
+        class="wave-image"
+
+      />
+
+    </div>
+
+    <!-- VOLUME -->
+
+    <div class="wave-container">
+
+      <img
+
+        *ngIf="measurement?.ginfImage"
+
+        [src]="
+          'data:image/jpeg;base64,' +
+          measurement.ginfImage
+        "
+
+        class="wave-image"
+
+      />
+
+    </div>
+
+  </div>
+
+    <!-- RIGHT -->
+
+    <div class="right-panel">
+
+      <!-- PARAMETRO DINAMICO -->
+
+      <div class="circle-box dynamic-circle">
+
+        <strong>
+
+          {{ measurement?.valorParametro || '--' }}
+
+        </strong>
+
+        <span>
+
+          {{ measurement?.nombreParametro || '--' }}
+
+        </span>
+
+      </div>
+
+      <!-- PEEP -->
+
+      <div class="circle-box">
+
+        <strong>
+
+          {{ measurement?.peep || '--' }}
+
+        </strong>
+
+        <span>
+
+          PEEP/CPAP
+
+        </span>
+
+      </div>
+
+      <!-- OXIGENO -->
+
+      <div class="circle-box">
+
+        <strong>
+
+          {{ measurement?.oxigeno || '--' }}
+
+        </strong>
+
+        <span>
+
+          Oxígeno
+
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

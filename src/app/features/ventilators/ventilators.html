@@ -1,0 +1,48 @@
+<div class="page">
+
+  <div class="header">
+    <h1>Ventiladores</h1>
+    <p>Ventiladores conectados actualmente</p>
+  </div>
+
+  <div *ngIf="loading" class="message">
+    Cargando ventiladores...
+  </div>
+
+  <div *ngIf="errorMsg" class="message error">
+    {{ errorMsg }}
+  </div>
+
+  <div class="table-container">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Modelo</th>
+          <th>Marca</th>
+          <th>Ubicación</th>
+          <th>Paciente ID</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let ventilator of ventilators">
+
+          <td>{{ ventilator.id }}</td>
+          <td>{{ ventilator.modelo }}</td>
+          <td>{{ ventilator.marca }}</td>
+          <td>{{ ventilator.ubicacion }}</td>
+          <td>{{ ventilator.patient_id }}</td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

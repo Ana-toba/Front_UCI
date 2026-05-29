@@ -1,0 +1,55 @@
+.page {
+  padding: 30px;
+}
+
+.header h1 {
+  color: var(--ces-blue-primary);
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: var(--ces-gray-medium);
+  margin-bottom: 24px;
+}
+
+.table-container {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+
+  box-shadow:
+    0 10px 25px rgba(15, 42, 74, 0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: var(--ces-blue-primary);
+  color: white;
+}
+
+th, td {
+  padding: 16px;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+  background: rgba(46, 109, 164, 0.05);
+}
+
+.message {
+  padding: 16px;
+  border-radius: 12px;
+  background: white;
+}
+
+.error {
+  color: red;
+}

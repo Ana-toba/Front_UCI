@@ -1,0 +1,479 @@
+// src/app/features/medico/dashboard/dashboard.scss
+// version buena 1
+.dashboard-wrapper {
+
+  background: #0f355d;
+
+  min-height: 100vh;
+
+  padding: 10px 14px;
+
+  padding-left: 34px;
+
+  color: white;
+
+  position: relative;
+
+  overflow-y: auto;
+
+  border-radius: 14px;
+
+}
+
+/* HEADER */
+
+.dashboard-header {
+
+  margin-bottom: 10px;
+
+}
+
+.dashboard-header h1 {
+
+  margin: 0;
+
+  font-size: 26px;
+
+  font-weight: 700;
+
+  letter-spacing: .5px;
+
+  line-height: 1;
+
+}
+
+.dashboard-header span {
+
+  color: #d1d5db;
+
+  font-size: 14px;
+
+}
+
+/* FULLSCREEN */
+
+.fullscreen-btn {
+
+  position: absolute;
+
+  top: 16px;
+
+  right: 16px;
+
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 12px;
+
+  border: none;
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  z-index: 20;
+
+  transition: .2s;
+
+}
+
+.fullscreen-btn:hover {
+
+  background: rgba(255,255,255,.15);
+
+}
+
+/* GRID */
+
+.monitors-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+
+  align-items: start;
+
+}
+
+/* CARD */
+
+.monitor-card {
+
+  background: #02070d;
+
+  border: 2px solid #08111d;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  height: 250px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  box-shadow:
+    0 0 14px rgba(0,0,0,.45);
+
+  transition: .2s;
+
+  cursor: pointer;
+
+}
+
+.monitor-card:hover {
+
+  border-color: #2563eb;
+
+  transform: scale(1.01);
+
+}
+
+/* TOP */
+
+.monitor-top {
+
+  height: 34px;
+
+  background: linear-gradient(
+    90deg,
+    #04111f,
+    #071c30
+  );
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 0 12px;
+
+  border-bottom: 2px solid black;
+
+}
+
+.monitor-mode {
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+}
+
+.monitor-status {
+
+  width: 12px;
+
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: red;
+
+}
+
+.monitor-status.active {
+
+  background: #22c55e;
+
+  box-shadow: 0 0 8px #22c55e;
+
+}
+
+/* BODY */
+
+.monitor-body {
+
+  flex: 1;
+
+  display: grid;
+
+  grid-template-columns: 70px 1fr 58px;
+
+}
+
+/* LEFT PANEL */
+
+.monitor-left {
+
+  background: #000;
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+.big-parameter {
+
+  flex: 1;
+
+  border-bottom: 1px solid #111;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 2px;
+
+}
+
+.big-parameter strong {
+
+  font-size: 20px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+}
+
+.big-parameter span {
+
+  font-size: 9px;
+
+  margin-top: 2px;
+
+}
+
+/* CENTER */
+
+.monitor-center {
+
+  background: #050505;
+
+  display: grid;
+
+  grid-template-rows: repeat(3, 1fr);
+
+}
+
+.wave {
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+
+}
+
+/* GRID EFFECT */
+
+.wave::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+
+  background-size:
+    100% 22px,
+    22px 100%;
+
+}
+
+/* SVG */
+
+.wave svg {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 170%;
+
+  height: 100%;
+
+  animation: moveWave 5s linear infinite;
+
+}
+
+/* WAVES */
+
+.pressure-path {
+
+  fill: none;
+
+  stroke: #ffe600;
+
+  stroke-width: 2.5;
+
+  filter: drop-shadow(0 0 2px #ffe600);
+
+}
+
+.flow-path {
+
+  fill: none;
+
+  stroke: #ff00b7;
+
+  stroke-width: 2.5;
+
+  filter: drop-shadow(0 0 2px #ff00b7);
+
+}
+
+.volume-path {
+
+  fill: none;
+
+  stroke: #00ff2f;
+
+  stroke-width: 2.5;
+
+  filter: drop-shadow(0 0 2px #00ff2f);
+
+}
+
+/* RIGHT PANEL */
+
+.monitor-right {
+
+  background: #000;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-evenly;
+
+  align-items: center;
+
+}
+
+.circle-parameter {
+
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 50%;
+
+  border: 3px solid #d1d5db;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+.circle-parameter strong {
+
+  font-size: 13px;
+
+  line-height: 1;
+
+}
+
+.circle-parameter span {
+
+  font-size: 6px;
+
+}
+
+/* FOOTER */
+
+.monitor-footer {
+
+  height: 20px;
+
+  background: #04111f;
+
+  border-top: 2px solid black;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+}
+
+/* ANIMATION */
+
+@keyframes moveWave {
+
+  from {
+
+    transform: translateX(0);
+
+  }
+
+  to {
+
+    transform: translateX(-40%);
+
+  }
+
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1700px) {
+
+  .monitors-grid {
+
+    grid-template-columns: repeat(3, 1fr);
+
+  }
+
+}
+
+@media (max-width: 1200px) {
+
+  .monitors-grid {
+
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .monitors-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+.wave-image {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: fill;
+
+  display: block;
+}

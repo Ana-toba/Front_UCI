@@ -1,0 +1,322 @@
+<div class="dashboard-wrapper">
+
+  <!-- FULLSCREEN BUTTON -->
+
+  <button
+    class="fullscreen-btn"
+    (click)="toggleFullscreen()">
+
+    ⛶
+
+  </button>
+
+  <!-- HEADER -->
+
+  <div class="dashboard-header">
+
+    <div>
+
+      <h1>
+        MONITORIZACIÓN CENTRALIZADA
+      </h1>
+
+      <span>
+        VENTILACIÓN MECÁNICA UCI
+      </span>
+
+    </div>
+
+  </div>
+
+  <!-- GRID -->
+
+  <div class="monitors-grid">
+
+    <!-- ===================================== -->
+    <!-- VENTILADORES -->
+    <!-- ===================================== -->
+
+    <div
+
+      class="monitor-card"
+
+      *ngFor="
+        let ventilator
+        of ventiladores
+      "
+
+      (click)="openMonitor(ventilator.id)">
+
+      <!-- ================================= -->
+      <!-- TOP -->
+      <!-- ================================= -->
+
+      <div class="monitor-top">
+
+        <!-- MODO -->
+
+        <div class="monitor-mode">
+
+          {{ ventilator.modo || '--' }}
+
+        </div>
+
+        <!-- STATUS -->
+
+        <div
+          class="monitor-status"
+          [class.active]="ventilator.activo">
+        </div>
+
+      </div>
+
+      <!-- ================================= -->
+      <!-- BODY -->
+      <!-- ================================= -->
+
+      <div class="monitor-body">
+
+        <!-- ================================= -->
+        <!-- LEFT -->
+        <!-- ================================= -->
+
+        <div class="monitor-left">
+
+          <!-- PPICO -->
+
+          <div class="big-parameter">
+
+            <strong>
+
+              {{ ventilator.ppico || '--' }}
+
+            </strong>
+
+            <span>
+
+              Ppico
+
+            </span>
+
+          </div>
+
+          <!-- VOLMINESP -->
+
+          <div class="big-parameter">
+
+            <strong>
+
+              {{ ventilator.volMinEsp || '--' }}
+
+            </strong>
+
+            <span>
+
+              VolMinEsp
+
+            </span>
+
+          </div>
+
+          <!-- VTE -->
+
+          <div class="big-parameter">
+
+            <strong>
+
+              {{ ventilator.vte || '--' }}
+
+            </strong>
+
+            <span>
+
+              VTE
+
+            </span>
+
+          </div>
+
+          <!-- FTOTAL -->
+
+          <div class="big-parameter">
+
+            <strong>
+
+              {{ ventilator.fTotal || '--' }}
+
+            </strong>
+
+            <span>
+
+              fTotal
+
+            </span>
+
+          </div>
+
+        </div>
+
+        <!-- ================================= -->
+        <!-- CENTER -->
+        <!-- ================================= -->
+
+        <!-- ================================= -->
+        <!-- CENTER -->
+        <!-- ================================= -->
+
+        <div class="monitor-center">
+
+          <!-- PRESSURE -->
+
+          <div class="wave pressure-wave">
+
+            <img
+
+              *ngIf="ventilator.gsImage"
+
+              [src]="
+                'data:image/jpeg;base64,' +
+                ventilator.gsImage
+              "
+
+              class="wave-image"
+
+            />
+
+          </div>
+
+          <!-- FLOW -->
+
+          <div class="wave flow-wave">
+
+            <img
+
+              *ngIf="ventilator.giImage"
+
+              [src]="
+                'data:image/jpeg;base64,' +
+                ventilator.giImage
+              "
+
+              class="wave-image"
+
+            />
+
+          </div>
+
+          <!-- VOLUME -->
+
+          <div class="wave volume-wave">
+
+            <img
+
+              *ngIf="ventilator.ginfImage"
+
+              [src]="
+                'data:image/jpeg;base64,' +
+                ventilator.ginfImage
+              "
+
+              class="wave-image"
+
+            />
+
+          </div>
+
+        </div>
+
+        <!-- ================================= -->
+        <!-- RIGHT -->
+        <!-- ================================= -->
+
+        <div class="monitor-right">
+
+          <!-- PARAMETRO DINAMICO -->
+
+          <div
+            class="
+              circle-parameter
+              dynamic-circle
+            ">
+
+            <strong>
+
+              {{
+                ventilator.valorParametro
+                || '--'
+              }}
+
+            </strong>
+
+            <span>
+
+              {{
+                ventilator.nombreParametro
+                || '--'
+              }}
+
+            </span>
+
+          </div>
+
+          <!-- PEEP -->
+
+          <div class="circle-parameter">
+
+            <strong>
+
+              {{ ventilator.peep || '--' }}
+
+            </strong>
+
+            <span>
+
+              PEEP/CPAP
+
+            </span>
+
+          </div>
+
+          <!-- OXIGENO -->
+
+          <div class="circle-parameter">
+
+            <strong>
+
+              {{
+                ventilator.oxigeno
+                || '--'
+              }}
+
+            </strong>
+
+            <span>
+
+              Oxígeno
+
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================================= -->
+      <!-- FOOTER -->
+      <!-- ================================= -->
+
+      <div class="monitor-footer">
+
+        {{
+          ventilator.cama
+          || 'CAMA 1'
+        }}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

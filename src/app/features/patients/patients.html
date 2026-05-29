@@ -1,0 +1,50 @@
+<div class="page">
+
+  <div class="header">
+    <h1>Pacientes</h1>
+    <p>Listado de pacientes conectados al sistema de ventilación</p>
+  </div>
+
+  <div *ngIf="loading" class="message">
+    Cargando pacientes...
+  </div>
+
+  <div *ngIf="errorMsg" class="message error">
+    {{ errorMsg }}
+  </div>
+
+  <div class="table-container">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Edad</th>
+          <th>Sexo</th>
+          <th>Cama</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let patient of patients">
+
+          <td>{{ patient.id }}</td>
+          <td>{{ patient.nombre }}</td>
+          <td>{{ patient.apellido }}</td>
+          <td>{{ patient.edad }}</td>
+          <td>{{ patient.sexo }}</td>
+          <td>{{ patient.cama }}</td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

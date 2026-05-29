@@ -1,0 +1,217 @@
+<div class="shell" [class.collapsed]="collapsed">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <!-- HEADER -->
+
+    <div class="sidebar-header">
+
+      <button
+        class="toggle-btn"
+        (click)="toggleSidebar()">
+
+        ☰
+
+      </button>
+
+      @if (!collapsed) {
+
+        <div class="brand">
+
+          <span class="brand-title">
+
+            VENTAI
+
+          </span>
+
+        </div>
+
+      }
+
+    </div>
+
+    <!-- MENU -->
+
+    <nav class="menu">
+
+      <!-- DASHBOARD -->
+
+      <a
+        routerLink="/medico/dashboard"
+        routerLinkActive="active">
+
+        <img
+          class="icon-svg"
+          src="images/bar.svg"
+          alt="Dashboard" />
+
+        @if (!collapsed) {
+
+          <span class="spanSize">
+
+            Dashboard
+
+          </span>
+
+        }
+
+      </a>
+
+      <!-- PACIENTES -->
+
+      <a
+        routerLink="/patients"
+        routerLinkActive="active">
+
+        <img
+          class="icon-svg"
+          src="images/home.svg"
+          alt="Pacientes" />
+
+        @if (!collapsed) {
+
+          <span class="spanSize">
+
+            Pacientes
+
+          </span>
+
+        }
+
+      </a>
+
+      <!-- VENTILADORES -->
+
+      <a
+        routerLink="/ventilators"
+        routerLinkActive="active">
+
+        <img
+          class="icon-svg"
+          src="images/docs.svg"
+          alt="Ventiladores" />
+
+        @if (!collapsed) {
+
+          <span class="spanSize">
+
+            Ventiladores
+
+          </span>
+
+        }
+
+      </a>
+
+      <!-- ESTADISTICAS -->
+
+      <a
+        routerLink="/medico/estadisticas"
+        routerLinkActive="active">
+
+        <img
+          class="icon-svg"
+          src="images/check.svg"
+          alt="Estadísticas" />
+
+        @if (!collapsed) {
+
+          <span class="spanSize">
+
+            Estadísticas
+
+          </span>
+
+        }
+
+      </a>
+
+    </nav>
+
+    <!-- FOOTER -->
+
+    <div class="sidebar-footer">
+
+      <button
+        class="logout-btn"
+        (click)="logout()">
+
+        <span class="icon">
+
+          ↩
+
+        </span>
+
+        @if (!collapsed) {
+
+          <span>
+
+            Salir
+
+          </span>
+
+        }
+
+      </button>
+
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+
+  <div class="main">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+      <h1>
+
+        UCI Monitor
+
+      </h1>
+
+      <!-- USER -->
+
+      <div class="topbar-user">
+
+        <div class="user-info">
+
+          <strong>
+
+            Médico
+
+          </strong>
+
+          <span>
+
+            Clínica CES UCI
+
+          </span>
+
+        </div>
+
+        <div class="user-icon">
+
+          <span>👤</span>
+
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- CONTENT -->
+
+    <main class="content">
+
+      <router-outlet></router-outlet>
+
+    </main>
+
+  </div>
+
+</div>
